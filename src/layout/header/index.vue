@@ -23,11 +23,19 @@
   >
     Won't close automatically
   </el-button>
+  <div>
+    <h1 class="animate__animated animate__bounce">
+      An animated element
+    </h1>
+  </div>
+  <div>{{ date1 }}</div>
 </template>
 
 <script lang="ts" setup>
 import {ElNotification} from 'element-plus';
+import moment from 'moment';
 
+const date1 = moment('2010-10-20 4:30', 'YYYY-MM-DD HH:mm');
 const open2 = () => {
   ElNotification({
     'title': 'Prompt',
