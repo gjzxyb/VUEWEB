@@ -81,7 +81,7 @@ module.exports = {
     // 禁止可以在有更简单的可替代的表达式时使用三元操作符
     'no-unneeded-ternary': 'error',
     // 禁止重复模块导入
-    'no-duplicate-imports': 'error',
+    'no-duplicate-imports': [0, {'includeExports': false}],
     // 禁止在对象中使用不必要的计算属性
     'no-useless-computed-key': 'error',
     // 禁止不必要的转义字符
