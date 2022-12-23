@@ -39,7 +39,7 @@ export default defineConfig(({command, mode}: ConfigEnv): UserConfig => {
       }),
       autoImport({
         // 'pinia', 'vue-router', 'vue-i18n', 'vue', '@vueuse/core'
-        'imports': ['vue', '@vueuse/core','vitest'],
+        'imports': ['vue', '@vueuse/core','vitepress'],
         'dirs': ['src/hooks'], // 配置自动导入的目录
         'dts': 'types/auto-import.d.ts',
         'eslintrc': {
