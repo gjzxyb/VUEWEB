@@ -1,11 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-// module.exports = {
-//   'content': [],
-//   'theme': {
-//     'extend': {},
-//   },
-//   'plugins': [],
-// };
 module.exports = {
   // 使用文件  https://github.com/aniftyco/awesome-tailwindcss  ui
   'content': ['./index.html', './src/**/*.{vue,ts}'],

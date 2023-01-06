@@ -23,6 +23,12 @@
   >
     Won't close automatically
   </el-button>
+  <el-button
+    plain
+    @click="open3"
+  >
+    Notification with offset
+  </el-button>
   <div>
     <h1 class="animate__animated animate__bounce">
       An animated element
@@ -32,6 +38,7 @@
 </template>
 
 <script lang="ts" setup>
+
 import {ElNotification} from 'element-plus';
 import moment from 'moment';
 
@@ -41,6 +48,13 @@ const open2 = () => {
     'title': 'Prompt',
     'message': 'This is a message that does not automatically close',
     'duration': 0,
+  });
+};
+const open3 = () => {
+  ElNotification.success({
+    'title': 'Success',
+    'message': 'This is a success message',
+    'offset': 100,
   });
 };
 </script>
