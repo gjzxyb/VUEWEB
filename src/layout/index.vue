@@ -5,6 +5,7 @@
       <div>{{ x }}--{{ y }}</div>
       <div>
         <Fold class="w-5 h-5 text-blue-800"></Fold>
+        <div class="text-25px bg-teal-700 text-theme-text-primary flex justify-center">你好Unocss</div>
       </div>
       <div>
         <el-table :data="tableData" style="width: 100%">
