@@ -257,5 +257,18 @@ module.exports = {
     'yield-star-spacing': [2, 'both'],
     'vue/multi-word-component-names': 0
   },
-  globals: { _: true, Base64: true, axios: true, BMap: true }
+  globals: {
+    _: true,
+    Base64: true,
+    axios: true,
+    BMap: true,
+    defineEmits: 'readonly',
+    defineProps: 'readonly',
+    defineExpose: 'readonly',
+    withDefaults: 'readonly',
+    WeixinJSBridge: 'readonly',
+    ElMessage: 'readonly',
+    ElMessageBox: 'readonly',
+    ElLoading: 'readonly'
+  }
 }

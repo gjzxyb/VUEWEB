@@ -13,8 +13,14 @@
           <el-table-column prop="address" label="Address"></el-table-column>
         </el-table>
       </div>
-      <el-button :plain="true" @click="open4">error</el-button>
-      <el-button text @click="open">Click to open the Message Box</el-button>
+      <el-button plain @click="open1">Success</el-button>
+      <el-button plain @click="open2">Warning</el-button>
+      <el-button plain @click="open3">Info</el-button>
+      <el-button plain @click="open4">Error</el-button>
+      <el-button :plain="true" @click="open6">success</el-button>
+      <el-button :plain="true" @click="open7">warning</el-button>
+      <el-button :plain="true" @click="open5">message</el-button>
+      <el-button :plain="true" @click="open8">error</el-button>
     </div>
 
     <Header></Header>
@@ -26,7 +32,7 @@
 import Header from './header/index.vue'
 import Content from './content/index.vue'
 import { Fold } from '@element-plus/icons-vue'
-import { ElMessage, ElMessageBox, type Action } from 'element-plus'
+import { ElMessage, ElNotification } from 'element-plus'
 
 const { x, y } = useMouse(),
   tableData = [
@@ -51,21 +57,51 @@ const { x, y } = useMouse(),
       address: 'No. 189, Grove St, Los Angeles'
     }
   ],
-  open4 = () => {
-    ElMessage.error('Oops, this is a error message.')
-  },
-  open = () => {
-    ElMessageBox.alert('This is a message', 'Title', {
-      // if you want to disable its autofocus
-      // autofocus: false,
-      confirmButtonText: 'OK',
-      callback: (action: Action) => {
-        ElMessage({
-          type: 'info',
-          message: `action: ${action}`
-        })
-      }
+  open1 = () => {
+    ElNotification({
+      title: 'Success',
+      message: 'This is a success message',
+      type: 'success'
     })
+  },
+  open2 = () => {
+    ElNotification({
+      title: 'Warning',
+      message: 'This is a warning message',
+      type: 'warning'
+    })
+  },
+  open3 = () => {
+    ElNotification({
+      title: 'Info',
+      message: 'This is an info message',
+      type: 'info'
+    })
+  },
+  open4 = () => {
+    ElNotification({
+      title: 'Error',
+      message: 'This is an error message',
+      type: 'error'
+    })
+  },
+  open5 = () => {
+    ElMessage('this is a message.')
+  },
+  open6 = () => {
+    ElMessage({
+      message: 'Congrats, this is a success message.',
+      type: 'success'
+    })
+  },
+  open7 = () => {
+    ElMessage({
+      message: 'Warning, this is a warning message.',
+      type: 'warning'
+    })
+  },
+  open8 = () => {
+    ElMessage.error('Oops, this is a error message.')
   }
 </script>
 

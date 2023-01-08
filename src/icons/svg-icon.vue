@@ -4,27 +4,23 @@
     aria-hidden="true"
     :style="{ height: props.size + 'rem', width: props.size + 'rem' }"
   >
-    <use
-      :xlink:href="iconName"
-      fill=""
-    />
+    <use :xlink:href="iconName" fill="" />
   </svg>
 </template>
 <script setup lang="ts">
-import {computed} from 'vue';
+import { computed } from 'vue'
 
 const props = defineProps({
-  'name': {
-    'type': String,
-    'required': true,
-  },
-  'size': {
-    'type': String,
-    'default': '1.5',
-  },
-});
-
-const iconName = computed(() => `#icon-${props.name}`);
+    name: {
+      type: String,
+      required: true
+    },
+    size: {
+      type: String,
+      default: '1.5'
+    }
+  }),
+  iconName = computed(() => `#icon-${props.name}`)
 </script>
 <style scoped>
 .svg-icon {
