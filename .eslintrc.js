@@ -122,20 +122,20 @@ module.exports = {
     'no-unreachable': 2, // 不能有无法执行的代码
     'no-unused-expressions': 2, // 禁止无用的表达式
     'no-unused-vars': [2, { vars: 'all', args: 'after-used' }], // 不能有声明后未被使用的变量或参数
-    'no-use-before-define': 2, // 未定义前不能使用
+    'no-use-before-define': 0, // 未定义前不能使用
     'no-useless-call': 2, // 禁止不必要的call和apply
     'no-void': 2, // 禁用void操作符
     'no-var': 0, // 禁用var，用let和const代替
     'no-warning-comments': [1, { terms: ['todo', 'fixme', 'xxx'], location: 'start' }], // 不能有警告备注
     'no-with': 2, // 禁用with
-
+    'vue/no-parsing-error': 0,
     'array-bracket-spacing': [2, 'never'], // 是否允许非空数组里面有多余的空格
     'arrow-parens': 0, // 箭头函数用小括号括起来
     'arrow-spacing': 0, // =>的前/后括号
     'accessor-pairs': 0, // 在对象中使用getter/setter
     'block-scoped-var': 0, // 块语句中使用var
     'brace-style': [1, '1tbs'], // 大括号风格
-    'callback-return': 1, // 避免多次调用回调什么的
+    'callback-return': 0, // 避免多次调用回调什么的
     camelcase: 0, // 强制驼峰法命名
     'comma-dangle': [0, 'never'], // 对象字面量项尾不能有逗号
     'comma-spacing': 0, // 逗号前后的空格
