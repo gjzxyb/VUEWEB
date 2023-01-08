@@ -1,6 +1,6 @@
 <template>
   <div class="bg-blue-600 w-screen h-screen flex justify-center items-center">
-    <el-card class="box-card flex justify-center text-center items-center m-1 p-0 h-1/3 w-2/5">
+    <el-card class="box-card flex justify-center text-center items-center m-1 p-0 h-1/3 w-1/3">
       <div class="card-header">
         <span>欢迎登录综合管理平台</span>
       </div>
@@ -10,13 +10,14 @@
         :model="ruleForm"
         status-icon
         :rules="rules"
-        label-width="60px"
         size="large"
+        label-position="left"
+        label-width="auto"
       >
         <el-form-item label="用户名" prop="user">
           <el-input v-model="ruleForm.user" autocomplete="off"></el-input>
         </el-form-item>
-        <el-form-item label="密码" prop="pass">
+        <el-form-item label="密&nbsp&nbsp&nbsp&nbsp码" prop="pass">
           <el-input v-model="ruleForm.pass" type="password" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item>
