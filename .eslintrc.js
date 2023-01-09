@@ -255,7 +255,8 @@ module.exports = {
     'no-whitespace-before-property': 2,
     'template-curly-spacing': [2, 'never'],
     'yield-star-spacing': [2, 'both'],
-    'vue/multi-word-component-names': 0
+    'vue/multi-word-component-names': 0,
+    'no-prototype-builtins': 2
   },
   globals: {
     _: true,
