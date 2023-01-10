@@ -31,6 +31,7 @@
 <script setup lang="ts">
 import type { FormInstance } from 'element-plus'
 import { reactive, ref } from 'vue'
+import { login } from '@/api/login'
 
 const ruleFormRef = ref<FormInstance>(),
   validateuser = (rule: any, value: any, callback: any) => {
@@ -78,5 +79,9 @@ const ruleFormRef = ref<FormInstance>(),
       }
     })
   }
+const Login = async () => {
+  const data = await login(ruleForm)
+  console.log(data)
+}
 </script>
 <style lang="scss" scoped></style>

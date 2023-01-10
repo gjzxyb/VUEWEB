@@ -104,7 +104,7 @@ module.exports = {
     'no-script-url': 0, // 禁止使用javascript:void(0)
     'no-self-compare': 2, // 不能比较自身
     'no-sequences': 0, // 禁止使用逗号运算符
-    'no-shadow': 2, // 外部作用域中的变量不能与它所包含的作用域中的变量或参数同名
+    'no-shadow': 0, // 外部作用域中的变量不能与它所包含的作用域中的变量或参数同名
     'no-shadow-restricted-names': 2, // 严格模式中规定的限制标识符不能作为声明时的变量名使用
     'no-spaced-func': 2, // 函数调用时 函数名与()之间不能有空格
     'no-sparse-arrays': 2, // 禁止稀疏数组， [1,,2]
@@ -121,7 +121,7 @@ module.exports = {
     'no-unneeded-ternary': 2, // 禁止不必要的嵌套 var isYes = answer === 1 ? true : false;
     'no-unreachable': 2, // 不能有无法执行的代码
     'no-unused-expressions': 2, // 禁止无用的表达式
-    'no-unused-vars': [2, { vars: 'all', args: 'after-used' }], // 不能有声明后未被使用的变量或参数
+    'no-unused-vars': [0, { vars: 'all', args: 'after-used' }], // 不能有声明后未被使用的变量或参数
     'no-use-before-define': 0, // 未定义前不能使用
     'no-useless-call': 2, // 禁止不必要的call和apply
     'no-void': 2, // 禁用void操作符
@@ -171,7 +171,7 @@ module.exports = {
     'newline-after-var': 0, // 变量声明后是否需要空一行
     'object-curly-spacing': [0, 'never'], // 大括号内是否允许不必要的空格
     'object-shorthand': 0, // 强制对象字面量缩写语法
-    'one-var': 1, // 连续声明
+    'one-var': 0, // 连续声明
     'operator-assignment': [0, 'always'], // 赋值运算符 += -=什么的
     'operator-linebreak': [2, 'after'], // 换行时运算符在行尾还是行首
     'padded-blocks': 0, // 块语句内行首行尾是否要空行
@@ -256,7 +256,9 @@ module.exports = {
     'template-curly-spacing': [2, 'never'],
     'yield-star-spacing': [2, 'both'],
     'vue/multi-word-component-names': 0,
-    'no-prototype-builtins': 2
+    'no-prototype-builtins': 2,
+    '@typescript-eslint/no-unused-vars': 0,
+    '@typescript-eslint/no-namespace': 0
   },
   globals: {
     _: true,
