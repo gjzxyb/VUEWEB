@@ -6,6 +6,7 @@ specifiers:
   '@element-plus/icons-vue': ^2.0.10
   '@tailwindcss/line-clamp': ^0.4.2
   '@types/node': ^18.11.12
+  '@types/qs': ^6.9.7
   '@typescript-eslint/eslint-plugin': ^5.47.0
   '@typescript-eslint/parser': ^5.47.0
   '@unocss/preset-attributify': ^0.48.1
@@ -70,6 +71,7 @@ devDependencies:
   '@babel/eslint-parser': registry.npmmirror.com/@babel/eslint-parser/7.19.1_ucmnolur3r335ullwiyt3zl3pi
   '@tailwindcss/line-clamp': registry.npmmirror.com/@tailwindcss/line-clamp/0.4.2_tailwindcss@3.2.4
   '@types/node': registry.npmmirror.com/@types/node/18.11.18
+  '@types/qs': registry.npmmirror.com/@types/qs/6.9.7
   '@typescript-eslint/eslint-plugin': registry.npmmirror.com/@typescript-eslint/eslint-plugin/5.48.0_xahtbjcgrefw6kror5hynw5swi
   '@typescript-eslint/parser': registry.npmmirror.com/@typescript-eslint/parser/5.48.0_wogtpudmlxya2leoxia5qf2rl4
   '@unocss/preset-attributify': registry.npmmirror.com/@unocss/preset-attributify/0.48.2
@@ -1028,6 +1030,12 @@ packages:
     resolution: {integrity: sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/node/-/node-18.11.18.tgz}
     name: '@types/node'
     version: 18.11.18
+
+  registry.npmmirror.com/@types/qs/6.9.7:
+    resolution: {integrity: sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/qs/-/qs-6.9.7.tgz}
+    name: '@types/qs'
+    version: 6.9.7
+    dev: true
 
   registry.npmmirror.com/@types/semver/7.3.13:
     resolution: {integrity: sha512-21cFJr9z3g5dW8B0CVI9g2O9beqaThGQ6ZFBqHfwhzLDKUxaqTIy3vnfah/UPkfOiF2pLq+tGz+W8RyCskuslw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/semver/-/semver-7.3.13.tgz}

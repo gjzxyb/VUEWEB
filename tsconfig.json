@@ -16,5 +16,7 @@
     {
       "path": "./tsconfig.config.json"
     }
-  ]
+  ],
+  "preserveValueImports": false,
+  //"isolatedModules": false,
 }
