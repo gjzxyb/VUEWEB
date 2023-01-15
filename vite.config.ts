@@ -1,4 +1,3 @@
-import { login } from './src/api/login'
 import type { UserConfig, ConfigEnv } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 import eslint from 'vite-plugin-eslint'
@@ -114,7 +113,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
       host: '0.0.0.0',
       port: 3000,
       proxy: {
-        '/login': {
+        '/api': {
           target: env.VITE_APP_BASEURL,
           changeOrigin: true
           //rewrite: (path) => path.replace(/^\/api/, '')

@@ -91,7 +91,7 @@ module.exports = {
     'no-obj-calls': 2, // 不能调用内置的全局对象，比如Math() JSON()
     'no-octal': 2, // 禁止使用八进制数字
     'no-octal-escape': 2, // 禁止使用八进制转义序列
-    'no-param-reassign': 2, // 禁止给参数重新赋值
+    'no-param-reassign': 0, // 禁止给参数重新赋值
     'no-path-concat': 0, // node中不能使用__dirname或__filename做路径拼接
     'no-plusplus': 0, // 禁止使用++，--
     'no-process-env': 0, // 禁止使用process.env
@@ -115,12 +115,12 @@ module.exports = {
     'no-throw-literal': 2, // 禁止抛出字面量错误 throw "error";
     'no-undef': 1, // 不能有未定义的变量
     'no-undef-init': 2, // 变量初始化时不能直接给它赋值为undefined
-    'no-undefined': 2, // 不能使用undefined
+    'no-undefined': 0, // 不能使用undefined
     'no-unexpected-multiline': 2, // 避免多行表达式
     'no-underscore-dangle': 1, // 标识符不能以_开头或结尾
     'no-unneeded-ternary': 2, // 禁止不必要的嵌套 var isYes = answer === 1 ? true : false;
     'no-unreachable': 2, // 不能有无法执行的代码
-    'no-unused-expressions': 2, // 禁止无用的表达式
+    'no-unused-expressions': 0, // 禁止无用的表达式
     'no-unused-vars': [0, { vars: 'all', args: 'after-used' }], // 不能有声明后未被使用的变量或参数
     'no-use-before-define': 0, // 未定义前不能使用
     'no-useless-call': 2, // 禁止不必要的call和apply
@@ -256,7 +256,7 @@ module.exports = {
     'template-curly-spacing': [2, 'never'],
     'yield-star-spacing': [2, 'both'],
     'vue/multi-word-component-names': 0,
-    'no-prototype-builtins': 2,
+    'no-prototype-builtins': 0,
     '@typescript-eslint/no-unused-vars': 0,
     '@typescript-eslint/no-namespace': 0
   },

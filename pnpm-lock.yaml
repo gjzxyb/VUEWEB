@@ -20,7 +20,7 @@ specifiers:
   '@vueuse/core': ^9.8.2
   animate.css: ^4.1.1
   autoprefixer: ^10.4.13
-  axios: ^1.2.2
+  axios: 1.2.2
   echarts: ^5.4.1
   element-plus: ^2.2.27
   esbuild: ^0.16.14

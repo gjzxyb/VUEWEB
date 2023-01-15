@@ -2,17 +2,12 @@ import { ElMessage } from 'element-plus'
 import type { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios'
 
 export const handleChangeRequestHeader = (config: AxiosRequestConfig) => {
-  //config['baseURL'] = 'xxx'
-  config['timeout'] = 6000
+  config['baseURL'] = 'xxx'
   return config
 }
 
 export const handleConfigureAuth = (config: AxiosRequestConfig) => {
-  const token = localStorage.getItem('token')
-  if (token && config.headers) {
-    typeof config.headers.set === 'function' &&
-      config.headers.set('Authorization', `Bearer ${token}`)
-  }
+  config.headers['token'] = localStorage.getItem('token') || ''
   return config
 }
 
