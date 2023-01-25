@@ -1,8 +1,12 @@
 <template>
-  <div class="bg-blue-600 w-screen h-screen flex justify-center items-center">
-    <el-card class="box-card flex justify-center text-center items-center m-1 p-0 h-1/3 w-1/3">
+  <div
+    class="bg-[url('@/assets/images/bg/bg.jpg')] w-screen h-screen flex justify-center items-center"
+  >
+    <el-card
+      class="bg-red-500/85 bg-opacity-0 flex justify-center text-center items-center m-1 p-0 h-2/5 w-2/5"
+    >
       <div class="card-header">
-        <span>欢迎登录综合管理平台</span>
+        <span class="text-xl">欢迎登录综合管理平台</span>
       </div>
 
       <el-form
@@ -12,13 +16,18 @@
         :rules="rules"
         size="large"
         label-position="left"
-        label-width="auto"
+        class="w-max m-6 bg-red-500/5 bg-opacity-0"
       >
         <el-form-item label="用户名" prop="username">
-          <el-input v-model="ruleForm.username" autocomplete="off"></el-input>
+          <el-input class="w-full" v-model="ruleForm.username" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="密&nbsp&nbsp&nbsp&nbsp码" prop="password">
-          <el-input v-model="ruleForm.password" type="password" autocomplete="off"></el-input>
+          <el-input
+            class="w-full"
+            v-model="ruleForm.password"
+            type="password"
+            autocomplete="off"
+          ></el-input>
         </el-form-item>
         <el-form-item>
           <el-button class="w-full" type="primary" @click="submitForm(ruleFormRef)">登录</el-button>
@@ -53,6 +62,7 @@ const ruleFormRef = ref<FormInstance>(),
         getArticleList(ruleForm).then((res) => {
           //deltoken('token')
           settoken('token', res.data.token)
+          settoken('username', res.data.username)
           ElMessage.success('登录成功!')
         })
       } else {

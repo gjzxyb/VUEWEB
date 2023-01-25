@@ -66,7 +66,7 @@ class AxiosHttpRequest implements BaseType {
         })
         // 添加全局的loading..
         // 请求头携带token
-        config.headers['Authorization'] = 'Bearer ' + gettoken('username')
+        config.headers['Authorization'] = 'Bearer ' + gettoken('token')
         config.headers['Content-Type'] = 'application/json;charset=utf-8'
         // get请求映射params参数
         if (config.method === 'get' && config.params) {
