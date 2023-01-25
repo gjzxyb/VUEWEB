@@ -14,11 +14,11 @@
         label-position="left"
         label-width="auto"
       >
-        <el-form-item label="用户名" prop="user">
-          <el-input v-model="ruleForm.user" autocomplete="off"></el-input>
+        <el-form-item label="用户名" prop="username">
+          <el-input v-model="ruleForm.username" autocomplete="off"></el-input>
         </el-form-item>
-        <el-form-item label="密&nbsp&nbsp&nbsp&nbsp码" prop="pass">
-          <el-input v-model="ruleForm.pass" type="password" autocomplete="off"></el-input>
+        <el-form-item label="密&nbsp&nbsp&nbsp&nbsp码" prop="password">
+          <el-input v-model="ruleForm.password" type="password" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button class="w-full" type="primary" @click="submitForm(ruleFormRef)">登录</el-button>
@@ -29,42 +29,20 @@
 </template>
 
 <script setup lang="ts">
-import type { FormInstance } from 'element-plus'
+import { ElMessage, type FormInstance } from 'element-plus'
 import { reactive, ref } from 'vue'
-import { api } from '@/api/index'
+import { ruleuser, rulepass } from '@/utils/vaildate'
+import { getArticleList } from '@/api/request'
+import { deltoken, settoken } from '@/utils/abtoken'
 
 const ruleFormRef = ref<FormInstance>(),
-  validateuser = (rule: any, value: any, callback: any) => {
-    if (value === '') {
-      callback(new Error('请输入用户名'))
-    } else {
-      if (ruleForm.user !== '') {
-        if (!ruleFormRef.value) {
-          return
-        }
-      }
-      callback()
-    }
-  },
-  validatepass = (rule: any, value: any, callback: any) => {
-    if (value === '') {
-      callback(new Error('请输入密码'))
-    } else {
-      if (ruleForm.pass !== '') {
-        if (!ruleFormRef.value) {
-          return
-        }
-      }
-      callback()
-    }
-  },
   ruleForm = reactive({
-    user: '',
-    pass: ''
+    username: '',
+    password: ''
   }),
   rules = reactive({
-    user: [{ validator: validateuser, trigger: 'blur' }],
-    pass: [{ validator: validatepass, trigger: 'blur' }]
+    username: [{ validator: ruleuser, trigger: 'blur' }],
+    password: [{ validator: rulepass, trigger: 'blur' }]
   }),
   submitForm = (formEl: FormInstance | undefined) => {
     if (!formEl) {
@@ -72,16 +50,16 @@ const ruleFormRef = ref<FormInstance>(),
     }
     formEl.validate((valid) => {
       if (valid) {
-        console.log('submit!')
+        getArticleList(ruleForm).then((res) => {
+          //deltoken('token')
+          settoken('token', res.data.token)
+          ElMessage.success('登录成功!')
+        })
       } else {
-        console.log('error submit!')
+        ElMessage.error('登录失败!')
         return false
       }
     })
   }
-const Login = async () => {
-  const data = await api.login(ruleForm)
-  console.log(data)
-}
 </script>
 <style lang="scss" scoped></style>

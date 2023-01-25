@@ -20,8 +20,9 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
   // 根据当前工作目录中的 `mode` 加载 .env 文件
   // 设置第三个参数为 '' 来加载所有环境变量，而不管是否有 `VITE_` 前缀。
   const env = loadEnv(mode, process.cwd(), '')
-  console.log(command)
-  console.log(mode)
+  //console.log(command)
+  //console.log(mode)
+  //console.log(loadEnv(mode, process.cwd(), '').VITE_APP_BASEURL)
 
   return {
     plugins: [
@@ -115,8 +116,8 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
       proxy: {
         '/api': {
           target: env.VITE_APP_BASEURL,
-          changeOrigin: true
-          //rewrite: (path) => path.replace(/^\/api/, '')
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, '')
         }
       }
     }
