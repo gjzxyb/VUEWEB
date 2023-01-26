@@ -11,7 +11,7 @@ import moment from 'moment'
 import 'virtual:svg-icons-register'
 import svgIcon from '@/icons/svg-icon.vue'
 import echarts from './utils/echarts'
-//import 'element-plus/dist/index.css'
+import 'element-plus/dist/index.css'
 
 const app = createApp(App)
 

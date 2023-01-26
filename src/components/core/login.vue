@@ -1,14 +1,13 @@
 <template>
   <div
-    class="bg-[url('@/assets/images/bg/bg.jpg')] w-screen h-screen flex justify-center items-center"
+    class="bg-[url('@/assets/images/bg/user-info-bg.png')] w-screen h-screen flex justify-center items-center"
   >
-    <el-card
-      class="bg-red-500/85 bg-opacity-0 flex justify-center text-center items-center m-1 p-0 h-2/5 w-2/5"
-    >
-      <div class="card-header">
-        <span class="text-xl">欢迎登录综合管理平台</span>
-      </div>
-
+    <el-card class="box-card h-2/5 w-1/3">
+      <template #header>
+        <div class="card-header flex justify-center text-center items-center m-1 p-0">
+          <span class="text-2xl text-red-600">欢迎登录综合管理平台</span>
+        </div>
+      </template>
       <el-form
         ref="ruleFormRef"
         :model="ruleForm"
@@ -16,12 +15,11 @@
         :rules="rules"
         size="large"
         label-position="left"
-        class="w-max m-6 bg-red-500/5 bg-opacity-0"
       >
         <el-form-item label="用户名" prop="username">
           <el-input class="w-full" v-model="ruleForm.username" autocomplete="off"></el-input>
         </el-form-item>
-        <el-form-item label="密&nbsp&nbsp&nbsp&nbsp码" prop="password">
+        <el-form-item label="密&nbsp&nbsp&nbsp码" prop="password">
           <el-input
             class="w-full"
             v-model="ruleForm.password"
@@ -29,7 +27,7 @@
             autocomplete="off"
           ></el-input>
         </el-form-item>
-        <el-form-item>
+        <el-form-item label="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp">
           <el-button class="w-full" type="primary" @click="submitForm(ruleFormRef)">登录</el-button>
         </el-form-item>
       </el-form>
@@ -41,8 +39,9 @@
 import { ElMessage, type FormInstance } from 'element-plus'
 import { reactive, ref } from 'vue'
 import { ruleuser, rulepass } from '@/utils/vaildate'
-import { getArticleList } from '@/api/request'
+import { login } from '@/api/request'
 import { deltoken, settoken } from '@/utils/abtoken'
+import router from '@/router'
 
 const ruleFormRef = ref<FormInstance>(),
   ruleForm = reactive({
@@ -59,11 +58,12 @@ const ruleFormRef = ref<FormInstance>(),
     }
     formEl.validate((valid) => {
       if (valid) {
-        getArticleList(ruleForm).then((res) => {
+        login(ruleForm).then((res) => {
           //deltoken('token')
           settoken('token', res.data.token)
           settoken('username', res.data.username)
           ElMessage.success('登录成功!')
+          router.push('/home')
         })
       } else {
         ElMessage.error('登录失败!')
@@ -72,4 +72,19 @@ const ruleFormRef = ref<FormInstance>(),
     })
   }
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.box-card {
+  background-color: rgb(85 0 0 / 0%);
+  box-shadow: none;
+  border: 0px solid rgb(85 0 0 / 0%);
+}
+.el-card ::v-deep(.el-card__header) {
+  border-bottom: 0px solid rgb(85 0 0 / 0%);
+  padding: 2px 10px;
+  background-color: rgb(85 0 0 / 0%);
+}
+.el-card ::v-deep(.el-card__body) {
+  padding: 5px;
+  background-color: rgb(85 0 0 / 0%);
+}
+</style>

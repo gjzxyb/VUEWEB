@@ -1,14 +1,27 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
+
+const routes: Array<RouteRecordRaw> = [
+  {
+    path: '/',
+    name: 'login',
+    component: () => import('@/components/core/login.vue'),
+    children: []
+    //meta: { requiresAuth: true },
+    // component: () => import(/* webpackChunkName: "about" */ '../views/About.vue
+  },
+  {
+    path: '/home',
+    name: 'home',
+    component: () => import('@/layout/index.vue'),
+    children: []
+    //meta: { requiresAuth: true },
+    // component: () => import(/* webpackChunkName: "about" */ '../views/About.vue
+  }
+]
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      component: () => import('@/components/core/login.vue'),
-      path: '/',
-      children: []
-    }
-  ]
+  history: createWebHistory(import.meta.env.VITE_APP_BASEURL1),
+  routes
 })
 
 export default router
