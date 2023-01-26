@@ -104,7 +104,7 @@ class AxiosHttpRequest implements BaseType {
         removeSource(res.config)
 
         // 未设置状态码则默认成功状态
-        const code = res.data['code'] || 200
+        const code = res.data['status'] || 200
         // 获取错误信息
         let msg = res.data['message'] || ''
         if (code === 200) {
@@ -140,7 +140,7 @@ class AxiosHttpRequest implements BaseType {
           '10037': '账号已无效',
           '10038': '账号未找到'
         }
-        if (code) {
+        if (code >= 1000) {
           ElMessage.error(authErrMap[code])
           // 授权错误，登出账户
           // logout();

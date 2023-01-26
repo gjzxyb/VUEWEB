@@ -5,7 +5,9 @@
       <div>{{ x }}--{{ y }}</div>
       <div>
         <Fold class="w-5 h-5 text-blue-800"></Fold>
-        <div class="text-25px bg-teal-700 text-theme-text-primary flex justify-center">你好Unocss</div>
+        <div class="text-25px bg-teal-700 text-theme-text-primary flex justify-center">
+          你好Unocss
+        </div>
       </div>
       <div>
         <el-table :data="tableData" style="width: 100%">
@@ -34,6 +36,14 @@ import Header from './header/index.vue'
 import Content from './content/index.vue'
 import { Fold } from '@element-plus/icons-vue'
 import { ElMessage, ElNotification } from 'element-plus'
+import { getstudentlist } from '@/api/request'
+
+const headers = { token: localStorage.getItem('token'), username: localStorage.username }
+
+getstudentlist().then((res) => {
+  console.log(res)
+  const studentlist = res.data.data
+})
 
 const { x, y } = useMouse(),
   tableData = [

@@ -8,10 +8,9 @@ export const login = (data: object) => {
   })
 }
 
-export const getArticleList = (data: object) => {
+export const getstudentlist = () => {
   return http.request({
-    url: '/api/login',
-    method: 'POST',
-    data
+    url: '/api/students',
+    method: 'GET'
   })
 }
