@@ -1,12 +1,12 @@
 import axios, {
   type AxiosInstance,
   type AxiosRequestConfig,
+  type AxiosResponse,
   type InternalAxiosRequestConfig,
   type RawAxiosRequestConfig
 } from 'axios'
 import qs from 'qs'
-import { ElMessage, ElLoading } from 'element-plus'
-import _ from 'lodash'
+import { ElMessage } from 'element-plus'
 import { gettoken } from '@/utils/abtoken'
 
 // 接口类型和方法
@@ -27,7 +27,6 @@ interface AxiosRequestType extends RawAxiosRequestConfig {
   timeout?: number
   value?: any
   cancelToken?: any
-  isShowLoading?: boolean
 }
 // 取消重复请求
 const CancelToken = axios.CancelToken
@@ -44,43 +43,6 @@ let removeSource = (config: any) => {
   }
 }
 
-// loading对象
-let loadingInstance: { close: () => void } | null
-// 请求合并只出现一次loading
-// 当前正在请求的数量
-let loadingRequestCount = 0
-//显示loading相关的函数 显示loading的函数 并且记录请求次数 ++
-const showLoading = (target: any) => {
-  if (loadingRequestCount === 0) {
-    loadingInstance = ElLoading.service({
-      lock: true,
-      text: '加载中...',
-      target: target,
-      background: 'rgba(255,255,255,0.5)'
-    })
-  }
-  loadingRequestCount++
-}
-
-// 隐藏loading的函数，并且记录请求次数
-const hideLoading = () => {
-  if (loadingRequestCount <= 0) {
-    return
-  }
-  loadingRequestCount--
-  if (loadingRequestCount === 0) {
-    toHideLoading()
-  }
-}
-
-// 防抖：将 300ms 间隔内的关闭 loading 便合并为一次. 防止连续请求时, loading闪烁的问题。
-const toHideLoading = _.debounce(() => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  loadingInstance.close()
-  loadingInstance = null
-}, 300)
-
 class AxiosHttpRequest implements BaseType {
   baseURL: string
   timeout: number
@@ -94,7 +56,7 @@ class AxiosHttpRequest implements BaseType {
     const config = {
       baseURL: this.baseURL,
       timeout: this.timeout,
-      headers: { isShowLoading: true }
+      headers: {}
     }
     return config
   }
@@ -138,17 +100,6 @@ class AxiosHttpRequest implements BaseType {
       //   return config
       // },
       (config: InternalAxiosRequestConfig) => {
-        let loadingTarget = 'body'
-        if (config.headers.loadingTarget) {
-          loadingTarget = config.headers.loadingTarget
-        }
-        const isShowLoading = config.headers.isShowLoading
-        const target = document.querySelector(loadingTarget)
-        //if (target && isShowLoading) {
-        if (target && isShowLoading) {
-          // 请求拦截进来调用显示loading效果
-          showLoading(loadingTarget)
-        }
         removeSource(config)
         config.cancelToken = new CancelToken((c) => {
           // 将取消函数存起来
@@ -187,9 +138,6 @@ class AxiosHttpRequest implements BaseType {
     // 响应拦截
     instance.interceptors.response.use(
       (res: any) => {
-        setTimeout(() => {
-          hideLoading()
-        }, 200)
         // 取消重复请求
         removeSource(res.config)
 
@@ -239,9 +187,6 @@ class AxiosHttpRequest implements BaseType {
         return Promise.reject(res.data)
       },
       (error: any) => {
-        setTimeout(() => {
-          hideLoading()
-        }, 200)
         console.log('err' + error)
         let { message } = error
         if (message === 'Network Error') {
@@ -255,7 +200,6 @@ class AxiosHttpRequest implements BaseType {
           message: message,
           duration: 5 * 1000
         })
-
         return Promise.reject(error)
       }
     )

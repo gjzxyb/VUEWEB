@@ -46,7 +46,7 @@ module.exports = {
     'no-dupe-keys': 2, // 在创建对象字面量时不允许键重复 {a:1,a:1}
     'no-dupe-args': 2, // 函数参数不能重复
     'no-duplicate-case': 2, // switch中的case标签不能重复
-    'no-else-return': 2, // 如果if语句里面有return,后面不能跟else语句
+    'no-else-return': 0, // 如果if语句里面有return,后面不能跟else语句
     'no-empty': 2, // 块语句中的内容不能为空
     'no-empty-character-class': 2, // 正则表达式中的[]内容不能为空
     'no-empty-label': 0, // 禁止使用空label
@@ -56,8 +56,8 @@ module.exports = {
     'no-extend-native': 2, // 禁止扩展native对象
     'no-extra-bind': 2, // 禁止不必要的函数绑定
     'no-extra-boolean-cast': 2, // 禁止不必要的bool转换
-    'no-extra-parens': 2, // 禁止非必要的括号
-    'no-extra-semi': 2, // 禁止多余的冒号
+    'no-extra-parens': 0, // 禁止非必要的括号
+    'no-extra-semi': 0, // 禁止多余的冒号
     'no-fallthrough': 1, // 禁止switch穿透
     'no-floating-decimal': 2, // 禁止省略浮点数中的0 .5 3.
     'no-func-assign': 2, // 禁止重复的函数声明
@@ -117,14 +117,14 @@ module.exports = {
     'no-undef-init': 2, // 变量初始化时不能直接给它赋值为undefined
     'no-undefined': 0, // 不能使用undefined
     'no-unexpected-multiline': 2, // 避免多行表达式
-    'no-underscore-dangle': 1, // 标识符不能以_开头或结尾
+    'no-underscore-dangle': 0, // 标识符不能以_开头或结尾
     'no-unneeded-ternary': 2, // 禁止不必要的嵌套 var isYes = answer === 1 ? true : false;
     'no-unreachable': 2, // 不能有无法执行的代码
     'no-unused-expressions': 0, // 禁止无用的表达式
     'no-unused-vars': [0, { vars: 'all', args: 'after-used' }], // 不能有声明后未被使用的变量或参数
     'no-use-before-define': 0, // 未定义前不能使用
     'no-useless-call': 2, // 禁止不必要的call和apply
-    'no-void': 2, // 禁用void操作符
+    'no-void': 0, // 禁用void操作符
     'no-var': 0, // 禁用var，用let和const代替
     'no-warning-comments': [1, { terms: ['todo', 'fixme', 'xxx'], location: 'start' }], // 不能有警告备注
     'no-with': 2, // 禁用with
@@ -258,7 +258,9 @@ module.exports = {
     'vue/multi-word-component-names': 0,
     'no-prototype-builtins': 0,
     '@typescript-eslint/no-unused-vars': 0,
-    '@typescript-eslint/no-namespace': 0
+    '@typescript-eslint/no-namespace': 0,
+    'ban-types': 0,
+    '@typescript-eslint/ban-types': 0
   },
   globals: {
     _: true,

@@ -16,10 +16,10 @@
         size="large"
         label-position="left"
       >
-        <el-form-item label="用户名" prop="username">
+        <el-form-item prop="username">
           <el-input class="w-full" v-model="ruleForm.username" autocomplete="off"></el-input>
         </el-form-item>
-        <el-form-item label="密&nbsp&nbsp&nbsp码" prop="password">
+        <el-form-item prop="password">
           <el-input
             class="w-full"
             v-model="ruleForm.password"
@@ -27,7 +27,7 @@
             autocomplete="off"
           ></el-input>
         </el-form-item>
-        <el-form-item label="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp">
+        <el-form-item>
           <el-button class="w-full" type="primary" @click="submitForm(ruleFormRef)">登录</el-button>
         </el-form-item>
       </el-form>
@@ -58,15 +58,18 @@ const ruleFormRef = ref<FormInstance>(),
     }
     formEl.validate((valid) => {
       if (valid) {
-        login(ruleForm).then((res) => {
-          //deltoken('token')
+        login(ruleForm, true).then((res: any) => {
           settoken('token', res.data.token)
           settoken('username', res.data.username)
-          ElMessage.success('登录成功!')
+          console.log(res.data)
+          ElMessage.success({
+            message: '登录成功!',
+            duration: 5 * 1000
+          })
           router.push('/home')
         })
       } else {
-        ElMessage.error('登录失败!')
+        ElMessage.error('验证失败!')
         return false
       }
     })

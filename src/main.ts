@@ -20,6 +20,7 @@ app.use(createPinia())
 app.use(router)
 app.config.globalProperties.$moment = moment
 app.config.globalProperties.$echarts = echarts
+
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
