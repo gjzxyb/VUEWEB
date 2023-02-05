@@ -1,8 +1,8 @@
 <template>
-  <el-row class="tac w-full">
+  <el-row class="tac w-full border-0">
     <el-col :span="12">
       <el-menu
-        class="bg-theme-primary-light-5 text-theme-text-primary"
+        class="border-0 bg-theme-primary-light-5 text-theme-text-primary"
         default-active="2"
         text-color="#fff"
         @open="handleOpen"
