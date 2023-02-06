@@ -5,12 +5,12 @@
         <Header></Header>
       </el-header>
       <el-container>
-        <el-aside width="200px" class="flex justify-center h-screen bg-theme-primary-light-3">
+        <el-aside width="auto" class="flex justify-center h-screen bg-theme-primary-light-3">
           <Menu></Menu>
         </el-aside>
         <el-container>
           <el-main><content></content></el-main>
-          <el-footer class="el-footer m-0 p-0"><Footer></Footer></el-footer>
+          <el-footer class="el-footer"><Footer></Footer></el-footer>
         </el-container>
       </el-container>
     </el-container>
@@ -25,7 +25,7 @@ import Footer from './footer/index.vue'
 </script>
 
 <style scoped lang="scss">
-.el-footer ::v-deep(.el-footer-padding) {
+.el-footer {
   padding: 0px;
   background-color: rgb(85 0 0 / 0%);
 }
