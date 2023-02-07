@@ -1,6 +1,6 @@
 <template>
   <div class="m-0 p-0 w-full" color="red">
-    <el-card class="el-card m-0 p-0 w-full text-center text-3xl text-red-500 bg-lime-500">
+    <el-card class="el-card m-0 p-0 w-full text-center text-2xl text-red-500 bg-lime-500">
       xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     </el-card>
   </div>

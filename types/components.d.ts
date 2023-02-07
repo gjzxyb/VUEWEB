@@ -10,6 +10,8 @@ declare module '@vue/runtime-core' {
     '(2)': typeof import('./../src/components/login/login (2).vue')['default']
     Basic: typeof import('./../src/components/basic/index.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
+    ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
+    ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCard: typeof import('element-plus/es')['ElCard']
     ElContainer: typeof import('element-plus/es')['ElContainer']

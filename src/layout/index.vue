@@ -9,7 +9,10 @@
           <Menu></Menu>
         </el-aside>
         <el-container>
-          <el-main><content></content></el-main>
+          <el-main class="flex">
+            <Breadcrumb></Breadcrumb>
+            <content></content>
+          </el-main>
           <el-footer class="el-footer"><Footer></Footer></el-footer>
         </el-container>
       </el-container>
@@ -22,6 +25,7 @@ import Header from './header/index.vue'
 import Menu from './menu/index.vue'
 import content from './content/index.vue'
 import Footer from './footer/index.vue'
+import Breadcrumb from './Breadcrumb/index.vue'
 </script>
 
 <style scoped lang="scss">
