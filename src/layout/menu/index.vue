@@ -2,7 +2,7 @@
   <div class="p-0 h-full bg-theme-primary-light-3 text-white">
     <el-menu
       default-active="2"
-      class="h-full border-0 bg-theme-primary-light-3 text-white"
+      class="h-full border-0 text-white bg-theme-primary-light-3"
       :collapse="isCollapse"
       @open="handleOpen"
       @close="handleClose"
@@ -44,7 +44,7 @@
 import { ref } from 'vue'
 import { Document, Menu as IconMenu, Location, Setting } from '@element-plus/icons-vue'
 
-const isCollapse = ref(true)
+const isCollapse = ref(false)
 const handleOpen = (key: string, keyPath: string[]) => {
   console.log(key, keyPath)
 }

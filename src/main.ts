@@ -4,14 +4,14 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import App from './App.vue'
 import router from './router'
 import '@/assets/css/reset.css'
+import 'uno.css'
 import '@/assets/css/index.scss'
 import 'animate.css'
-import 'uno.css'
+import 'element-plus/dist/index.css'
 import moment from 'moment'
 import 'virtual:svg-icons-register'
 import svgIcon from '@/icons/svg-icon.vue'
 import echarts from './utils/echarts'
-import 'element-plus/dist/index.css'
 
 const app = createApp(App)
 

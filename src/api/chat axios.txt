@@ -1,0 +1,82 @@
+import axios, { AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
+import { Loading, Message } from 'element-plus';
+
+const instance = axios.create();
+
+instance.interceptors.request.use(
+  (config: AxiosRequestConfig) => {
+    // Show loading spinner
+    Loading.service({
+      text: 'Loading...',
+    });
+    return config;
+  },
+  (error: AxiosError) => {
+    // Hide loading spinner
+    Loading.clear();
+    return Promise.reject(error);
+  },
+);
+
+instance.interceptors.response.use(
+  (response: AxiosResponse) => {
+    // Hide loading spinner
+    Loading.clear();
+    return response;
+  },
+  (error: AxiosError) => {
+    // Hide loading spinner
+    Loading.clear();
+    // Show error message
+    Message.error(error.message);
+    return Promise.reject(error);
+  },
+);
+
+let pendingRequests: Set<string> = new Set();
+
+const deduplicateRequest = (config: AxiosRequestConfig) => {
+  const key = JSON.stringify(config);
+  if (!pendingRequests.has(key)) {
+    pendingRequests.add(key);
+    return instance(config)
+      .then(response => {
+        pendingRequests.delete(key);
+        return response;
+      })
+      .catch(error => {
+        pendingRequests.delete(key);
+        throw error;
+      });
+  }
+  return Promise.reject(new Error('Request already pending'));
+};
+
+const debounce = (func: any, wait: number) => {
+  let timeout: any;
+  return (...args: any) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), wait);
+  };
+};
+
+const debouncedDeduplicateRequest = debounce(deduplicateRequest, 500);
+
+export default {
+  get(url: string, config?: AxiosRequestConfig) {
+    return debouncedDeduplicateRequest({
+      method: 'get',
+      url,
+      ...config,
+    });
+  },
+  post(url: string, data?: any, config?: AxiosRequestConfig) {
+    return debouncedDeduplicateRequest({
+      method: 'post',
+      url,
+      data,
+      ...config,
+    });
+  },
+  // Add other HTTP methods as needed
+};
