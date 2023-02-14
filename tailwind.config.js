@@ -108,6 +108,7 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/line-clamp') // 超出省略
-  ],
-  important: true
+  ]
+  //提高tailwind的优先级
+  //important: true
 }
