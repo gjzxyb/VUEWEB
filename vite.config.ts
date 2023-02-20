@@ -26,7 +26,9 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 
   return {
     plugins: [
-      vue(),
+      vue({
+        reactivityTransform: true
+      }),
       // setup语法糖设置名字
       setupExtend({
         /* options */
