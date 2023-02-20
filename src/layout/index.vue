@@ -1,9 +1,9 @@
 <template>
   <div>
     <el-container>
-      <el-aside width="auto"><Menu></Menu></el-aside>
+      <el-aside width="auto"><Menu :collpase="state.isCollapse"></Menu></el-aside>
       <el-container>
-        <el-header><Header></Header></el-header>
+        <el-header><Header v-model:collpase="state.isCollapse"></Header></el-header>
         <el-main>
           <Breadcrumb></Breadcrumb>
           <router-view></router-view>
@@ -17,6 +17,11 @@
 import Header from './header/index.vue'
 import Menu from './menu/index.vue'
 import Breadcrumb from './Breadcrumb/index.vue'
+import { reactive } from 'vue'
+const state = reactive({
+  // 控制折叠与展开
+  isCollapse: false
+})
 </script>
 
 <style scoped lang="scss">

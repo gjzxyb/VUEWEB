@@ -1,8 +1,9 @@
 <template>
-  <div class="header border-0 inline-flex justify-start py-3">
+  <div class="header border-0 inline-block justify-start py-3">
     <div class="px-2 py-3">
-      <el-icon size="36">
-        <Expand>@click="isCollapse = !isCollapse"</Expand>
+      <el-icon>
+        <expand v-if="props.collpase" @click="handleCollapse"></expand>
+        <fold v-else @click="handleCollapse"></fold>
       </el-icon>
     </div>
     <div class="title text-3xl text-white">通用管理系统</div>
@@ -23,6 +24,18 @@ const logout = () => {
   deltoken('token')
   deltoken('username')
   router.push('/login')
+}
+const props = defineProps<{
+  collpase: boolean
+}>()
+const emits = defineEmits<{
+  // 这样写，父组件通过v-model传值进来，父组件那边就不用在定义事件改变这里传过去的值了
+  // update:collpase 就会自动改变v-model传过来的值了
+  (e: 'update:collpase', value: boolean): void
+}>()
+
+const handleCollapse = () => {
+  emits('update:collpase', !props.collpase)
 }
 </script>
 

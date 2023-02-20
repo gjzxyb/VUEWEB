@@ -1,9 +1,7 @@
 <template>
   <el-menu
     default-active="2"
-    :collapse="isCollapse"
-    @open="handleOpen"
-    @close="handleClose"
+    :collapse="props.collpase"
     class="el-menu-container"
     :unique-opened="true"
     active-text-color="#409Eff"
@@ -25,7 +23,7 @@
       </el-menu-item-group>
       <el-sub-menu index="1-4">
         <template #title><span>item four</span></template>
-        <el-menu-item index="1-4-1">item one</el-menu-item>
+        <el-menu-item index="1-4-1">东东茳江</el-menu-item>
       </el-sub-menu>
     </el-sub-menu>
   </el-menu>
@@ -35,13 +33,10 @@
 import { ref } from 'vue'
 import { Document, Menu as IconMenu, Location, Setting } from '@element-plus/icons-vue'
 
-const isCollapse = ref(false)
-const handleOpen = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
-}
-const handleClose = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
-}
+const props = defineProps<{
+  collpase: boolean
+}>()
+
 //     active-text-color="#409Eff"
 //     background-color="#545c64"
 //     text-color="#fff"
