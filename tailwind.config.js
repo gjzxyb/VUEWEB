@@ -2,9 +2,8 @@
 module.exports = {
   //配置 Tailwind 来移除生产环境下没有使用到的样式声明
   //在您的 tailwind.config.js 文件中，配置 purge 选项指定所有的 pages 和 components 文件，使得 Tailwind 可以在生产构建中对未使用的样式进行摇树优化。
-  purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   // 使用文件  https://github.com/aniftyco/awesome-tailwindcss  ui
-  content: ['./index.html', './src/**/*.{vue,ts}'],
+  content: ['./src/**/*.{js,jsx,ts,tsx,vue}'],
   corePlugins: {
     preflight: false // 这个预设很烦人建议抽出来自己定义使用
   },

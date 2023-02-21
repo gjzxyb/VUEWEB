@@ -31,12 +31,13 @@ specifiers:
   eslint-plugin-import: ^2.26.0
   eslint-plugin-prettier: ^3.1.0
   eslint-plugin-vue: ^9.8.0
+  fast-glob: ^3.2.12
   lodash: ^4.17.21
   moment: ^2.29.4
   npm-run-all: ^4.1.5
   pinia: ^2.0.28
   pinia-plugin-persist: ^1.0.0
-  postcss: ^8.4.20
+  postcss: ^8.4.21
   postcss-import: ^15.1.0
   postcss-nesting: ^10.2.0
   postcss-px-to-viewport: ^1.1.1
@@ -45,7 +46,7 @@ specifiers:
   qs: ^6.11.0
   rollup-plugin-visualizer: ^5.8.3
   sass: ^1.57.1
-  tailwindcss: ^3.2.4
+  tailwindcss: ^3.2.7
   typescript: ~4.7.4
   unocss: ^0.48.0
   unplugin-auto-import: ^0.12.1
@@ -70,6 +71,7 @@ dependencies:
   axios-retry: registry.npmmirror.com/axios-retry/3.4.0
   echarts: registry.npmmirror.com/echarts/5.4.1
   element-plus: registry.npmmirror.com/element-plus/2.2.28_vue@3.2.45
+  fast-glob: registry.npmmirror.com/fast-glob/3.2.12
   lodash: registry.npmmirror.com/lodash/4.17.21
   moment: registry.npmmirror.com/moment/2.29.4
   pinia: registry.npmmirror.com/pinia/2.0.28_e7lp6ggkpgyi5vqd44m2kxvk6i
@@ -83,7 +85,7 @@ dependencies:
 devDependencies:
   '@babel/core': registry.npmmirror.com/@babel/core/7.20.12
   '@babel/eslint-parser': registry.npmmirror.com/@babel/eslint-parser/7.19.1_ucmnolur3r335ullwiyt3zl3pi
-  '@tailwindcss/line-clamp': registry.npmmirror.com/@tailwindcss/line-clamp/0.4.2_tailwindcss@3.2.4
+  '@tailwindcss/line-clamp': registry.npmmirror.com/@tailwindcss/line-clamp/0.4.2_tailwindcss@3.2.7
   '@types/node': registry.npmmirror.com/@types/node/18.11.18
   '@types/qs': registry.npmmirror.com/@types/qs/6.9.7
   '@typescript-eslint/eslint-plugin': registry.npmmirror.com/@typescript-eslint/eslint-plugin/5.48.0_xahtbjcgrefw6kror5hynw5swi
@@ -113,7 +115,7 @@ devDependencies:
   prettier-eslint: registry.npmmirror.com/prettier-eslint/15.0.1
   rollup-plugin-visualizer: registry.npmmirror.com/rollup-plugin-visualizer/5.9.0
   sass: registry.npmmirror.com/sass/1.57.1
-  tailwindcss: registry.npmmirror.com/tailwindcss/3.2.4_postcss@8.4.21
+  tailwindcss: registry.npmmirror.com/tailwindcss/3.2.7_postcss@8.4.21
   typescript: registry.npmmirror.com/typescript/4.7.4
   unocss: registry.npmmirror.com/unocss/0.48.2_vite@4.0.4
   unplugin-auto-import: registry.npmmirror.com/unplugin-auto-import/0.12.1_@vueuse+core@9.10.0
@@ -940,14 +942,12 @@ packages:
     dependencies:
       '@nodelib/fs.stat': registry.npmmirror.com/@nodelib/fs.stat/2.0.5
       run-parallel: registry.npmmirror.com/run-parallel/1.2.0
-    dev: true
 
   registry.npmmirror.com/@nodelib/fs.stat/2.0.5:
     resolution: {integrity: sha512-RkhPPp2zrqDAQA/2jNhnztcPAlv64XdhIp7a7454A5ovI7Bukxgt7MX7udwAu3zg1DcpPU0rz3VV1SeaqvY4+A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@nodelib/fs.stat/-/fs.stat-2.0.5.tgz}
     name: '@nodelib/fs.stat'
     version: 2.0.5
     engines: {node: '>= 8'}
-    dev: true
 
   registry.npmmirror.com/@nodelib/fs.walk/1.2.8:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@nodelib/fs.walk/-/fs.walk-1.2.8.tgz}
@@ -957,7 +957,6 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': registry.npmmirror.com/@nodelib/fs.scandir/2.1.5
       fastq: registry.npmmirror.com/fastq/1.15.0
-    dev: true
 
   registry.npmmirror.com/@polka/url/1.0.0-next.21:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@polka/url/-/url-1.0.0-next.21.tgz}
@@ -995,7 +994,7 @@ packages:
     version: 2.11.7
     dev: false
 
-  registry.npmmirror.com/@tailwindcss/line-clamp/0.4.2_tailwindcss@3.2.4:
+  registry.npmmirror.com/@tailwindcss/line-clamp/0.4.2_tailwindcss@3.2.7:
     resolution: {integrity: sha512-HFzAQuqYCjyy/SX9sLGB1lroPzmcnWv1FHkIpmypte10hptf4oPUfucryMKovZh2u0uiS9U5Ty3GghWfEJGwVw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@tailwindcss/line-clamp/-/line-clamp-0.4.2.tgz}
     id: registry.npmmirror.com/@tailwindcss/line-clamp/0.4.2
     name: '@tailwindcss/line-clamp'
@@ -1003,7 +1002,7 @@ packages:
     peerDependencies:
       tailwindcss: '>=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1'
     dependencies:
-      tailwindcss: registry.npmmirror.com/tailwindcss/3.2.4_postcss@8.4.21
+      tailwindcss: registry.npmmirror.com/tailwindcss/3.2.7_postcss@8.4.21
     dev: true
 
   registry.npmmirror.com/@trysound/sax/0.2.0:
@@ -3326,7 +3325,6 @@ packages:
       glob-parent: registry.npmmirror.com/glob-parent/5.1.2
       merge2: registry.npmmirror.com/merge2/1.4.1
       micromatch: registry.npmmirror.com/micromatch/4.0.5
-    dev: true
 
   registry.npmmirror.com/fast-json-stable-stringify/2.1.0:
     resolution: {integrity: sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/fast-json-stable-stringify/-/fast-json-stable-stringify-2.1.0.tgz}
@@ -3346,7 +3344,6 @@ packages:
     version: 1.15.0
     dependencies:
       reusify: registry.npmmirror.com/reusify/1.0.4
-    dev: true
 
   registry.npmmirror.com/file-entry-cache/6.0.1:
     resolution: {integrity: sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/file-entry-cache/-/file-entry-cache-6.0.1.tgz}
@@ -4558,7 +4555,6 @@ packages:
     name: merge2
     version: 1.4.1
     engines: {node: '>= 8'}
-    dev: true
 
   registry.npmmirror.com/micromatch/3.1.0:
     resolution: {integrity: sha512-3StSelAE+hnRvMs8IdVW7Uhk8CVed5tp+kLLGlBP6WiRAXS21GPGu/Nat4WNPXj2Eoc24B02SaeoyozPMfj0/g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/micromatch/-/micromatch-3.1.0.tgz}
@@ -4591,7 +4587,6 @@ packages:
     dependencies:
       braces: registry.npmmirror.com/braces/3.0.2
       picomatch: registry.npmmirror.com/picomatch/2.3.1
-    dev: true
 
   registry.npmmirror.com/mime-db/1.52.0:
     resolution: {integrity: sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/mime-db/-/mime-db-1.52.0.tgz}
@@ -5446,7 +5441,6 @@ packages:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/queue-microtask/-/queue-microtask-1.2.3.tgz}
     name: queue-microtask
     version: 1.2.3
-    dev: true
 
   registry.npmmirror.com/quick-lru/5.1.1:
     resolution: {integrity: sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/quick-lru/-/quick-lru-5.1.1.tgz}
@@ -5590,7 +5584,6 @@ packages:
     name: reusify
     version: 1.0.4
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
-    dev: true
 
   registry.npmmirror.com/rimraf/3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/rimraf/-/rimraf-3.0.2.tgz}
@@ -5644,7 +5637,6 @@ packages:
     version: 1.2.0
     dependencies:
       queue-microtask: registry.npmmirror.com/queue-microtask/1.2.3
-    dev: true
 
   registry.npmmirror.com/safe-buffer/5.2.1:
     resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/safe-buffer/-/safe-buffer-5.2.1.tgz}
@@ -6133,11 +6125,11 @@ packages:
       stable: registry.npmmirror.com/stable/0.1.8
     dev: true
 
-  registry.npmmirror.com/tailwindcss/3.2.4_postcss@8.4.21:
-    resolution: {integrity: sha512-AhwtHCKMtR71JgeYDaswmZXhPcW9iuI9Sp2LvZPo9upDZ7231ZJ7eA9RaURbhpXGVlrjX4cFNlB4ieTetEb7hQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/tailwindcss/-/tailwindcss-3.2.4.tgz}
-    id: registry.npmmirror.com/tailwindcss/3.2.4
+  registry.npmmirror.com/tailwindcss/3.2.7_postcss@8.4.21:
+    resolution: {integrity: sha512-B6DLqJzc21x7wntlH/GsZwEXTBttVSl1FtCzC8WP4oBc/NKef7kaax5jeihkkCEWc831/5NDJ9gRNDK6NEioQQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/tailwindcss/-/tailwindcss-3.2.7.tgz}
+    id: registry.npmmirror.com/tailwindcss/3.2.7
     name: tailwindcss
-    version: 3.2.4
+    version: 3.2.7
     engines: {node: '>=12.13.0'}
     hasBin: true
     peerDependencies:
