@@ -1,16 +1,16 @@
 <template>
-  <div class="header border-0 inline-block justify-start py-3">
-    <div class="px-2 py-3">
+  <div class="header static justify-start py-3">
+    <div class="static left-0 py-3">
       <el-icon>
         <expand v-if="props.collpase" @click="handleCollapse"></expand>
         <fold v-else @click="handleCollapse"></fold>
       </el-icon>
     </div>
-    <div class="title text-3xl text-white">通用管理系统</div>
-    <div class="right-2 py-4 text-white">
+    <div class="title absolute left-1/2 translate-x-[-50%] text-3xl text-white">通用管理系统</div>
+    <div class="absolute right-18 py-4 text-white">
       {{ name }}
     </div>
-    <div class="right-2 py-4 text-white">
+    <div class="absolute right-2 py-4 text-white">
       <el-button type="info" @click="logout">退出</el-button>
     </div>
   </div>
