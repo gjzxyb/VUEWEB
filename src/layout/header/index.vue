@@ -6,7 +6,6 @@
         <fold v-else @click="handleCollapse"></fold>
       </el-icon>
     </div>
-    <div class="title absolute left-1/2 translate-x-[-50%] text-3xl text-white">通用管理系统</div>
     <div class="absolute right-18 py-4 text-white">
       {{ name }}
     </div>
@@ -42,6 +41,7 @@ const handleCollapse = () => {
 <style scoped lang="scss">
 .el-header {
   background-color: #363d40;
+  //@apply bg-slate-900
   // 给头部设置一下弹性布局
   display: flex;
   // 让它贴标左右对齐
