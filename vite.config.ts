@@ -111,6 +111,11 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
         '@': fileURLToPath(new URL('./src', import.meta.url))
       }
     },
+    css: {
+      postcss: {
+        plugins: [require('tailwindcss'), require('autoprefixer')]
+      }
+    },
     server: {
       //base: '/',
       host: '0.0.0.0',
