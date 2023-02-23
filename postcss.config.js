@@ -9,6 +9,9 @@ module.exports = {
     'postcss-import': {},
     'tailwindcss/nesting': 'postcss-nesting',
     tailwindcss: {},
-    autoprefixer: {}
+    autoprefixer: {},
+    'postcss-logical': {
+      preserve: true
+    }
   }
 }

@@ -27,7 +27,7 @@ module.exports = {
   rules: {
     'arrow-body-style': 'off',
     'prefer-arrow-callback': 'off',
-    'prettier/prettier': [1],
+    'prettier/prettier': [0],
     'no-alert': 0, // 禁止使用alert confirm prompt
     'no-array-constructor': 2, // 禁止使用数组构造器
     'no-bitwise': 0, // 禁止使用按位运算符
