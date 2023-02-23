@@ -113,7 +113,12 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
     },
     css: {
       postcss: {
-        plugins: [require('tailwindcss'), require('autoprefixer')]
+        plugins: [
+          require('tailwindcss'),
+          require('autoprefixer'),
+          require('autoprefixer'),
+          require('postcss-apply')
+        ]
       }
     },
     server: {
